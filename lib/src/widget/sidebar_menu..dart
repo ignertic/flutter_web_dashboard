@@ -51,7 +51,7 @@ class _SideBarMenuState extends State<SideBarMenu>
                     color: Colors.grey.shade300,
                     image: DecorationImage(
                       image: NetworkImage(
-                          'https://backgrounddownload.com/wp-content/uploads/2018/09/google-material-design-background-6.jpg'),
+                          'https://scontent.fhre1-1.fna.fbcdn.net/v/t1.0-9/p960x960/89823696_104351614540558_1215839876390322176_o.png?_nc_cat=108&_nc_sid=85a577&_nc_ohc=zi4ZbmUnZFEAX_IZa_n&_nc_ht=scontent.fhre1-1.fna&oh=f23681cca8f1183ebd5ec448481a24ef&oe=5EF6C77E'),
                       fit: BoxFit.cover,
                     )),
                 child: Container(
@@ -67,7 +67,7 @@ class _SideBarMenuState extends State<SideBarMenu>
                         children: <Widget>[
                           CircleAvatar(
                             backgroundImage: NetworkImage(
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4JuatGP6M5_Q0wYSkx2jAVzJff1FBaPYXV7zFbMngh5RV6J7'),
+                                'https://upload.wikimedia.org/wikipedia/commons/2/2e/Zupco_zimbabwe.gif'),
                             backgroundColor: Colors.white,
                             radius: _animation.value >= 250 ? 30 : 20,
                           ),
@@ -75,7 +75,7 @@ class _SideBarMenuState extends State<SideBarMenu>
                             width: _animation.value >= 250 ? 20 : 0,
                           ),
                           (_animation.value >= 250)
-                              ? Text('Yasin ilhan',
+                              ? Text('ZUPCO',
                                   style: menuListTileDefaultText)
                               : Container(),
                         ],
@@ -86,7 +86,7 @@ class _SideBarMenuState extends State<SideBarMenu>
                       Spacer(),
                       (_animation.value >= 250)
                           ? Text(
-                              'Yasin ilhan',
+                              'ZUPCO',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -96,7 +96,7 @@ class _SideBarMenuState extends State<SideBarMenu>
                           : Container(),
                       (_animation.value >= 250)
                           ? Text(
-                              'yasinilhan61@gmail.com',
+                              'supercode@zupco.co.zw',
                               style: TextStyle(
                                 fontSize: 13,
                                 color: Colors.white,

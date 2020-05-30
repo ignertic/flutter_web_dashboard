@@ -44,8 +44,8 @@ class ProfileWidget extends StatelessWidget {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage(
-                                  'assets/images/profile-bg.jpg',
+                                image: NetworkImage(
+                                  'https://scontent.fhre1-1.fna.fbcdn.net/v/t1.0-9/p960x960/89823696_104351614540558_1215839876390322176_o.png?_nc_cat=108&_nc_sid=85a577&_nc_ohc=zi4ZbmUnZFEAX_IZa_n&_nc_ht=scontent.fhre1-1.fna&oh=f23681cca8f1183ebd5ec448481a24ef&oe=5EF6C77E',
                                 ),
                               ),
                               color: Colors.grey,
@@ -70,7 +70,7 @@ class ProfileWidget extends StatelessWidget {
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: AssetImage('assets/images/4.jpg'),
+                              image: NetworkImage('https://scontent.fhre1-1.fna.fbcdn.net/v/t1.0-9/p960x960/89823696_104351614540558_1215839876390322176_o.png?_nc_cat=108&_nc_sid=85a577&_nc_ohc=zi4ZbmUnZFEAX_IZa_n&_nc_ht=scontent.fhre1-1.fna&oh=f23681cca8f1183ebd5ec448481a24ef&oe=5EF6C77E'),
                             )),
                       ),
                     )
@@ -89,7 +89,7 @@ class ProfileWidget extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      'James Anderson',
+                      'VOXOID',
                       style: TextStyle(
                         fontSize: 24,
                         color: Colors.black87,
@@ -100,7 +100,7 @@ class ProfileWidget extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      'Web Designer & Developer',
+                      'https://voxoid.tech',
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.grey,
@@ -111,7 +111,7 @@ class ProfileWidget extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      'Lorem ipsum dolor sit amet, this is a consectetur adipisicing elit',
+                      '<SuperCode Gnertic/>',
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.grey,
@@ -131,7 +131,7 @@ class ProfileWidget extends StatelessWidget {
                         ),
                         onPressed: () => print('follow'),
                         child: Text(
-                          'Follow',
+                          'VOXOID',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -149,11 +149,11 @@ class ProfileWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              '1099',
+                              '>>>',
                               style: TextStyle(fontSize: 20),
                             ),
                             Text(
-                              'Articles',
+                              'Twitter',
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.grey,
@@ -164,11 +164,11 @@ class ProfileWidget extends StatelessWidget {
                         Column(
                           children: <Widget>[
                             Text(
-                              '23,469',
+                              'thisisvoxoid',
                               style: TextStyle(fontSize: 20),
                             ),
                             Text(
-                              'Followers',
+                              'Facebook',
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.grey,
@@ -179,11 +179,11 @@ class ProfileWidget extends StatelessWidget {
                         Column(
                           children: <Widget>[
                             Text(
-                              '6035',
+                              '<<<',
                               style: TextStyle(fontSize: 20),
                             ),
                             Text(
-                              'Following',
+                              'Instagram',
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.grey,

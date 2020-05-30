@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/src/commons/theme.dart';
@@ -9,8 +11,24 @@ import 'package:flutter_web_dashboard/src/widget/project_widget.dart';
 import 'package:flutter_web_dashboard/src/widget/quick_contact.dart';
 import 'package:flutter_web_dashboard/src/widget/responsive_widget.dart';
 import 'package:flutter_web_dashboard/src/widget/sidebar_menu..dart';
+import 'package:http/http.dart' as http;
+import '../../view.dart';
 
 class MainPage extends StatelessWidget {
+  String _SERVER = 'https://zupco.herokuapp.com/';
+  Map<String, dynamic> data = {
+    'owner_name' : '',
+    'owner_phone_number' : '',
+    'owner_residential_address' : '',
+    'driver_name' : '',
+    'conductor_name' : '',
+    'plate_number' : '',
+    'phone' : '',
+    'residential_address' : '',
+    'vehicle_color' : '',
+    'routes' : ''
+  };
+
   @override
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
@@ -20,12 +38,12 @@ class MainPage extends StatelessWidget {
 
         if (constraints.maxWidth <= 800) {
           return Center(
-            child: Text('küçük'),
+            child: Text('Enlarge Screen'),
           );
         } else if (constraints.maxWidth <= 1280 &&
             constraints.maxWidth >= 800) {
           return Center(
-            child: Text('ddede'),
+            child: Text('Please maximize your browser window'),
           );
         } else if (constraints.maxWidth >= 1280) {
           return Material(
@@ -51,7 +69,7 @@ class MainPage extends StatelessWidget {
                           elevation: 4,
                           centerTitle: true,
                           title: Text(
-                            'Flutter Dashboard Web',
+                            'ZUPCO Dashboard <Web>',
                           ),
                           backgroundColor: drawerBgColor,
                         ),
@@ -76,37 +94,37 @@ class MainPage extends StatelessWidget {
                                               CrossAxisAlignment.stretch,
                                           children: <Widget>[
                                             CardTile(
-                                              iconBgColor: Colors.orange,
-                                              cardTitle: 'Booking',
-                                              icon: Icons.flight_takeoff,
-                                              subText: 'Todays',
-                                              mainText: '230',
-                                            ),
-                                            SizedBox(width: 20),
-                                            CardTile(
-                                              iconBgColor: Colors.pinkAccent,
-                                              cardTitle: 'Website Visits',
-                                              icon: Icons.show_chart,
-                                              subText:
-                                                  'Tracked from Google Analytics',
-                                              mainText: '3.560',
+                                              iconBgColor: Colors.purple,
+                                              cardTitle: 'Operators',
+                                              icon: Icons.list,
+                                              subText: 'Total Number of Operators',
+                                              mainText: '5',
                                             ),
                                             SizedBox(width: 20),
                                             CardTile(
                                               iconBgColor: Colors.green,
-                                              cardTitle: 'Revenue',
-                                              icon: Icons.home,
-                                              subText: 'Last 24 Hours',
-                                              mainText: '2500',
+                                              cardTitle: 'Approved',
+                                              icon: Icons.check,
+                                              subText:
+                                                  'Verified Operators',
+                                              mainText: '4',
+                                            ),
+                                            SizedBox(width: 20),
+                                            CardTile(
+                                              iconBgColor: Colors.red,
+                                              cardTitle: 'Suspended',
+                                              icon: Icons.clear,
+                                              subText: 'Suspended Operators',
+                                              mainText: '1',
                                             ),
                                             SizedBox(width: 20),
                                             CardTile(
                                               iconBgColor:
-                                                  Colors.lightBlueAccent,
-                                              cardTitle: 'Followors',
-                                              icon: Icons.unfold_less,
-                                              subText: 'Last 24 Hours',
-                                              mainText: '112',
+                                                  Colors.amber,
+                                              cardTitle: 'Reports',
+                                              icon: Icons.folder,
+                                              subText: 'Traffic Reports',
+                                              mainText: '0',
                                             ),
                                           ],
                                         ),
@@ -123,22 +141,26 @@ class MainPage extends StatelessWidget {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
-                                                ChartCardTile(
+                                                GestureDetector(
+                                                  onTap: (){
+                                                    showFancyCustomDialog(context);
+                                                  },
+                                                  child: ChartCardTile(
                                                   cardColor: Color(0xFF7560ED),
-                                                  cardTitle: 'Bandwidth usage',
-                                                  subText: 'March 2017',
+                                                  cardTitle: 'Add New Operator',
+                                                  subText: 'Generate New QR Code ',
                                                   icon: Icons.pie_chart,
-                                                  typeText: '50 GB',
-                                                ),
+                                                  typeText: 'New Operator',
+                                                )),
                                                 SizedBox(
                                                   height: 20,
                                                 ),
                                                 ChartCardTile(
                                                   cardColor: Color(0xFF25C6DA),
-                                                  cardTitle: 'Download count',
-                                                  subText: 'March 2017',
+                                                  cardTitle: 'Remove Operator',
+                                                  subText: 'Delete an Operator',
                                                   icon: Icons.cloud_upload,
-                                                  typeText: '35487',
+                                                  typeText: 'Permanetly Remove Operator',
                                                 ),
                                               ],
                                             ),
@@ -189,4 +211,74 @@ class MainPage extends StatelessWidget {
       },
     );
   }
+
+  void showFancyCustomDialog(BuildContext context) {
+    final keys = data.keys.toList();
+    keys.add('submit');
+
+    Dialog fancyDialog = Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      child: Stack(children: [Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        // height: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width/2,
+        child: ListView.builder(
+          itemCount: keys.length,
+          itemBuilder: (context, index){
+            if (keys[index]=='submit'){
+              return Container(
+                padding: EdgeInsets.all(20),
+                color: Colors.blue,
+                child: ListTile(
+                  leading: Icon(Icons.account_circle),
+                  trailing: Icon(Icons.add_circle_outline),
+                  title: Text('Register & Generate Operator Code', style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white
+                  ))
+                  ,onTap:(){
+                    _addOperator(context);
+
+                  } ,
+                )
+              );
+            }
+            return Container(
+              child: ListTile(
+                leading: Text(keys[index].toUpperCase()),
+                title: TextField(
+                  onChanged: (value){
+                    data[keys[index]] = value;
+                  },
+                  decoration: InputDecoration(
+                    // hintText:
+                  ),
+                ),
+              )
+            );
+          },
+        ),
+      ),
+
+    ]),
+    );
+    showDialog(
+        context: context, builder: (BuildContext context) => fancyDialog);
+ }
+
+ _addOperator(context)async{
+   final client = http.Client();
+   final response = await client.post(_SERVER+'operators', body: data);
+   if (response.statusCode==200){
+     final data = jsonDecode(response.body);
+     Navigator.push(context, MaterialPageRoute(
+       builder: (context)=>QRView(data)
+     ));
+   }
+ }
+
 }

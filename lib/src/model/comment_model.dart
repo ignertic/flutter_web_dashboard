@@ -21,39 +21,31 @@ class Comment {
 
 List<Comment> commentList = [
   Comment(
-    name: 'James Anderson',
+    name: 'Central Police Headquaters',
     status: Status.Pending,
-    image: 'assets/images/1.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/en/9/94/Zimbabwe_Republic_Police.jpg',
     color: Colors.blue,
-    date: 'May 19, 2019',
+    date: 'May 19, 2020',
     comment:
-        'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting ',
+        'Requesting details for plate number B123-REW for suspicious activities',
   ),
   Comment(
-    name: 'Michael Jorden',
+    name: 'ZUPCO Operator',
     status: Status.Approved,
-    image: 'assets/images/2.jpg',
-    date: 'May 19, 2019',
+    image: 'https://lh3.googleusercontent.com/proxy/tYIgF9h283cAc5nZio8ANXgD2UMyR7mjH5I02d-GpERWHY7xvUNfen4y_sIf7c7iGZ6NY90H7Ja3iF8iuOriVYI0B0c',
+    date: 'May 19, 2020',
     color: Colors.green,
     comment:
-        'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting ',
+        'Requesting QR Code Renewal for B232-POE.',
   ),
   Comment(
-    name: 'Johnathan Doeting',
-    status: Status.Rejected,
-    color: Colors.red,
-    image: 'assets/images/3.jpg',
-    date: 'May 19, 2019',
-    comment:
-        'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting ',
-  ),
-  Comment(
-    name: 'Joe Doe',
+    name: 'Minstry Of Transport and Infrastructure Development',
     status: Status.Pending,
-    image: 'assets/images/4.jpg',
-    color: Colors.blue,
+    color: Colors.red,
+    image: 'https://pbs.twimg.com/profile_images/1118031212239568896/iAV6nc42.jpg',
     date: 'May 19, 2019',
     comment:
-        'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting ',
+        'Requesting list of suspended operators',
   ),
+
 ];

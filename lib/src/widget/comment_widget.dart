@@ -26,12 +26,12 @@ class CommentWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Recent Comments',
+              'Dashboard Messages',
               style: cardTitleTextStyle,
             ),
             SizedBox(height: 10),
             Text(
-              'Latest Comments on users from Material',
+              'Latest Notifications',
               style: TextStyle(fontSize: 13, color: Colors.grey),
             ),
             SizedBox(height: 20),
@@ -45,7 +45,7 @@ class CommentWidget extends StatelessWidget {
                     child: ListTile(
                       dense: true,
                       leading: CircleAvatar(
-                        backgroundImage: AssetImage(commentList[index].image),
+                        backgroundImage: NetworkImage(commentList[index].image),
                         radius: 30,
                       ),
                       title: Text(
@@ -74,7 +74,7 @@ class CommentWidget extends StatelessWidget {
                                 Icon(Icons.highlight_off,
                                     size: 15, color: Colors.grey),
                                 SizedBox(width: 10),
-                                Icon(Icons.favorite_border,
+                                Icon(Icons.delete,
                                     size: 15, color: Colors.pink),
                               ],
                             ),

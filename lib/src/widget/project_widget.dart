@@ -32,7 +32,7 @@ class ProjectWidget extends StatelessWidget {
                   top: 10,
                   left: 20,
                   child: Text(
-                    'Projects of the Month',
+                    'Operators List',
                     style: cardTitleTextStyle,
                   ),
                 ),
@@ -46,19 +46,19 @@ class ProjectWidget extends StatelessWidget {
                         children: <Widget>[
                           SizedBox(width: 2),
                           Text(
-                            'Assigned',
+                            'Operator Name',
                             style: TextStyle(color: Colors.grey),
                           ),
                           Text(
-                            'Name',
+                            'Plate Number',
                             style: TextStyle(color: Colors.grey),
                           ),
                           Text(
-                            'Priority',
+                            'Status',
                             style: TextStyle(color: Colors.grey),
                           ),
                           Text(
-                            'Budget',
+                            'Reported',
                             style: TextStyle(color: Colors.grey),
                           ),
                         ],
@@ -95,12 +95,7 @@ class ProjectWidget extends StatelessWidget {
                                 ),
                                 Container(
                                   child: Text(
-                                    projectItems[index].priority.index == 0
-                                        ? 'Low'
-                                        : projectItems[index].priority.index ==
-                                                1
-                                            ? 'Medium'
-                                            : 'High',
+                                    projectItems[index].priority==Priority.Active?'Active' : 'Suspended',
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(
                                       color: Colors.white,
@@ -115,7 +110,7 @@ class ProjectWidget extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                    '${projectItems[index].budget.toString()} K'),
+                                    '${projectItems[index].budget.toString()} times'),
                               ],
                             ),
                           );

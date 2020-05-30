@@ -9,6 +9,8 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^0.2.0
+  faker: ^1.2.1
+  http: ^0.12.1
 
 flutter:
  uses-material-design: true
