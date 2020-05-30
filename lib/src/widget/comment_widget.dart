@@ -73,7 +73,7 @@ class CommentWidget extends StatelessWidget {
                                 SizedBox(width: 10),
                                 Icon(Icons.highlight_off,
                                     size: 15, color: Colors.grey),
-                                SizedBox(width: 10),
+                                SizedBox(width: 10), //re
                                 Icon(Icons.delete,
                                     size: 15, color: Colors.pink),
                               ],
